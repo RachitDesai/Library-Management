@@ -2,11 +2,11 @@ package pbook;
 
 public  class Book
 {
-    public int ISBN;
-    String title;
-    int p_year;
-    String Lang;
-    String Category;
+    public static int ISBN;
+    static String title;
+    static int p_year;
+    static String Lang;
+    static String Category;
 
     public Book()
     {
@@ -42,7 +42,7 @@ public  class Book
         
     }
 
-    public void display()
+    public static void display()
     {
         
         System.out.println("***** Book Details********");
