@@ -2,7 +2,7 @@ package pbook;
 
 public  class Book
 {
-    public static int ISBN;
+    public static int ISBN = 0;
     static String title;
     static int p_year;
     static String Lang;
@@ -10,12 +10,11 @@ public  class Book
 
     public Book()
     {
-
+            ISBN ++;
     }
-
-    public Book(int I,String T,int P,String L,String C)
+    public Book(String T,int P,String L,String C)
     {
-        ISBN = I;
+        this();
         title= T;
         p_year = P;
         Lang = L;
@@ -23,34 +22,16 @@ public  class Book
     }
     
 
-
-    public int search(int isbn)
+    public void display()
     {
-        return isbn;
-    }
-
-    public void search(String title)
-    {
-        if(title.equals("Meluha"))
-            display();
-        else
-            System.out.println("Book Not Found");
-    }
-
-    public void addBook()
-    {
-        
-    }
-
-    public static void display()
-    {
-        
+        System.out.println();   
         System.out.println("***** Book Details********");
         System.out.println("ISBN :- " + ISBN);
-        System.out.println("Title :- " + title);
+        System.out.println("Title :- " + title.trim());
         System.out.println("Publication Year :- " + p_year);
-        System.out.println("Language :- " + Lang);
-        System.out.println("Category :- " + Category);
+        System.out.println("Language :- " + Lang.trim());
+        System.out.println("Category :- " + Category.trim());
+        System.out.println();
        
     }
 

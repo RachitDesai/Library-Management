@@ -10,6 +10,23 @@ public class Account
     int tot_user;
     int tot_staff;
     int book_borrowed = 56;
+    private static double salary;
+    
+    private static double getSal(double salary)
+    {
+        return salary;
+    }
+
+    public static class Salary
+    {
+        static double final_sal()
+        {
+            if(Account.getSal(salary) >= 20000)
+                return  Account.salary - (Account.salary*0.1);
+            else
+                return Account.salary;
+        }
+    }
     
     public void display()
     {
@@ -30,6 +47,8 @@ public class Account
         System.out.println("Total Users:- " + tot_user);
         System.out.println("Total Staff :- "+tot_staff);
         System.out.println("Fine :- " + fine);
+        System.out.println("Salary :- "+Salary.final_sal());
+
        
     }
 

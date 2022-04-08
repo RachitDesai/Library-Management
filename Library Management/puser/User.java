@@ -13,33 +13,58 @@ public class User
     int sem;
     int book_issued;
 
-    public int status;
+    private String pass = "rachit";
+    private int roll = 2147225;
 
+    public int status;
+    Scanner myObj = new Scanner(System.in);
     
-    public void logIn()
+    public boolean logIn()
     {
         
-        System.out.print("username: ");
-        Scanner sc = new Scanner(System.in);
-        user_roll = sc.nextInt();
+        System.out.println("\n");
+        System.out.print("User ID: ");
+        user_roll= myObj.nextInt();
 
-        sc.nextLine();
         System.out.print("Password: ");
-        password = sc.nextLine();
+        password = myObj.next();
 
-        if(user_roll == 2147225 && password.equals("rachit"))
+       
+        if(user_roll == roll && password.equals(pass))
         {
-             display();
-            System.out.println("Login Successfull");
+            display();
+            return true;
         }
         else
-        {   
-            System.out.println("Unable to Login ");
-            System.exit(0);
+            return false;
+    }
+
+    public void update_pofile(int roll)
+    {
+        System.out.println("\n");
+        System.out.print("New ID: ");
+        roll= myObj.nextInt();  
+        System.out.println();
+        System.out.println("Profile Updated Successfully");      
+    }
+
+    public boolean update_pofile(String pass)
+    {
+        String  pass1;
+        System.out.println("\n");
+        System.out.print("New Password : ");
+        pass1= myObj.next();
+
+        System.out.print("Confirm Password : ");
+        pass= myObj.next();
+
+        if(pass.equals(pass1))
+        {
+            System.out.println("Profile Updated Successfully");
+            return true;
         }
-        //sc.close();
-        status++;
-     
+        else
+            return false;      
     }
 
     void display()
@@ -54,11 +79,11 @@ public class User
         System.out.println();
         System.out.println();
         System.out.println("***** User Details********");
-        System.out.println("Name :-" + user_name);
-        System.out.println("Email :-" + user_email);
+        System.out.println("Name :-" + user_name.trim());
+        System.out.println("Email :-" + user_email.trim());
         System.out.println("Roll :-" + user_roll);
         System.out.println("Phone :-" + user_phone);
-        System.out.println("Department :-" + user_name);
+        System.out.println("Department :-" + user_name.trim());
         System.out.println("Semester :-" + sem);
         System.out.println("Book Issued :-" + book_issued);
         System.out.println();
